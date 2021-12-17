@@ -31,6 +31,7 @@ var fight = function (enemy) {
     while (playerInfo.health > 0 && enemy.health > 0) {
         fightOrSkip();
         break;
+
         // generate random damage value based on player's attack power
         var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
 
@@ -144,20 +145,16 @@ var shop = function () {
     );
 
     // use switch case to carry out action
+    shopOptionPrompt = parseInt(shopOptionPrompt);
     switch (shopOptionPrompt) {
-        case 'REFILL':
-        case 'refill':
+        case 1:
             playerInfo.refillHealth();
             break;
-        case 'UPGRADE':
-        case 'upgrade':
+        case 2:
             playerInfo.upgradeAttack();
             break;
-        case 'LEAVE':
-        case 'leave':
+        case 3:
             window.alert('Leaving the store.');
-
-            // do nothing, so function will end
             break;
         default:
             window.alert('You did not pick a valid option. Try again.');
